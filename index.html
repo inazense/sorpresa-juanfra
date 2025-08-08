@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La sorpresa de Juanfra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Pantalla inicial -->
+        <div id="welcome-screen" class="screen active">
+            <h1 class="title">La sorpresa de Juanfra</h1>
+            <button id="start-button" class="start-button">Comenzar el juego</button>
+        </div>
+
+        <!-- Pantalla del juego -->
+        <div id="game-screen" class="screen">
+            <div class="game-container">
+                <h2 id="question-title">Pregunta 1 de 5</h2>
+                <p id="question-text"></p>
+                <div class="options-container">
+                    <button class="option-button" data-index="0"></button>
+                    <button class="option-button" data-index="1"></button>
+                    <button class="option-button" data-index="2"></button>
+                    <button class="option-button" data-index="3"></button>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <span id="progress-text">0/5</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla final -->
+        <div id="final-screen" class="screen">
+            <h1 class="title">25 - 28 de Septiembre</h1>
+            <h2 class="subtitle">Nos vamos a Málaga</h2>
+            <h3 class="welcome-text">¡Bienvenido a la Comic-Con España!</h3>
+            <div class="image-container">
+                <img src="comic-con.png" alt="Comic-Con España" class="comic-con-image">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
