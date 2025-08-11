@@ -43,12 +43,19 @@ const optionButtons = document.querySelectorAll('.option-button');
 const progressFill = document.getElementById('progress-fill');
 const progressText = document.getElementById('progress-text');
 
+// Elementos del modal
+const resultModal = document.getElementById('result-modal');
+const modalMessage = document.getElementById('modal-message');
+const modalCloseButton = document.getElementById('modal-close-button');
+
 // Event listeners
 startButton.addEventListener('click', startGame);
 
 optionButtons.forEach(button => {
     button.addEventListener('click', () => selectOption(button));
 });
+
+modalCloseButton.addEventListener('click', closeModal);
 
 // Funciones del juego
 function startGame() {
@@ -123,15 +130,25 @@ function updateProgress() {
     progressText.textContent = `${currentQuestion}/${questions.length}`;
 }
 
+function showModal(message) {
+    modalMessage.textContent = message;
+    resultModal.classList.add('active');
+}
+
+function closeModal() {
+    resultModal.classList.remove('active');
+    resetGame();
+}
+
 function showFinalScreen() {
     if (score === questions.length) {
         // Todas las respuestas correctas
         gameScreen.classList.remove('active');
         finalScreen.classList.add('active');
     } else {
-        // No todas las respuestas correctas - reiniciar juego
-        alert(`Has acertado ${score} de ${questions.length} preguntas. ¡Inténtalo de nuevo!`);
-        resetGame();
+        // No todas las respuestas correctas - mostrar modal
+        const message = `Has acertado ${score} de ${questions.length} preguntas. ¡Inténtalo de nuevo!`;
+        showModal(message);
     }
 }
 
